@@ -19,7 +19,7 @@ running. Each worker routine had a channel to which the master sent jobs to and 
 by sending it to a seperate go routine, which was responsible for writing out the data
 
 ## How data is tracked
-The data was tracked via maps, where the key was entry + zip or date and pointed to stream tracker, which uses the two heap to track median, and tracks total and number of transactions. 
+The data was tracked via maps, where the key was entry + zip or date and value was pointer to stream tracker, which uses the two heaps to track median, and tracked total and number of transactions. 
 
 ## Possible Improvements
 Just like how the zip file is written as the data is being processed, the date file writes could also be improved, especially for larger files, where it may not be optimal to write it all out at the end. Make more tests in the test suite to get a better understanding of performance.
